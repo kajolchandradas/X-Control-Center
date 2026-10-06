@@ -1,0 +1,8 @@
+{
+  "name": "x-control-center",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {"dev":"node server/index.js","start":"NODE_ENV=production node server/index.js"},
+  "dependencies": {"cookie-parser":"^1.4.7","dotenv":"^16.4.7","express":"^5.1.0","helmet":"^8.1.0","nanoid":"^5.1.5"}
+}
