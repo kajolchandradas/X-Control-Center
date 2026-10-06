@@ -8,5 +8,12 @@
     "build": "node -e \"process.exit(0)\"",
     "start": "NODE_ENV=production node server/index.js"
   },
-  "dependencies": {"cookie-parser":"^1.4.7","dotenv":"^16.4.7","express":"^5.1.0","helmet":"^8.1.0","nanoid":"^5.1.5"}
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "nanoid": "^5.1.5"
+  }
 }

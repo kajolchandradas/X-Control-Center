@@ -1,0 +1,133 @@
+/* Tablet Responsive (<= 1024px) */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 210px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .user-stats-cols {
+    gap: 16px;
+  }
+}
+
+/* Mobile & Small Screens (<= 768px) */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px;
+    gap: 6px;
+  }
+
+  .nav-section-label, .sidebar-footer {
+    display: none;
+  }
+
+  .nav-item {
+    white-space: nowrap;
+    padding: 8px 12px;
+  }
+
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .dashboard-content {
+    padding: 16px;
+    gap: 18px;
+  }
+
+  .profile-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  .profile-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  /* Stack user cards on mobile */
+  .user-row-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .user-main-col {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .user-stats-cols {
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .user-actions-col {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .filter-row-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input-wrap {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .modal-box {
+    margin: 10px;
+    padding: 18px;
+  }
+
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .toast {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+/* Extra small mobile (<= 480px) */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
