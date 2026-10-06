@@ -16,11 +16,11 @@ const DB_FILE = path.join(DATA_DIR, 'app_db.json');
 await fs.mkdir(DATA_DIR, { recursive: true });
 
 const app = express();
-app.use(helmet({ contentSecurityPolicy: false }));
+app.use(helmet({ contentSecurityPolicy: false, frameguard: false }));
 app.use(express.json({ limit: '1mb' }));
 app.use(cookieParser());
 
-const PORT = Number(process.env.PORT || 3000);
+const PORT = 3000;
 const CLIENT_ID = process.env.X_CLIENT_ID;
 const CLIENT_SECRET = process.env.X_CLIENT_SECRET;
 const REDIRECT_URI = process.env.X_REDIRECT_URI || `${process.env.APP_BASE_URL || `http://localhost:${PORT}`}/api/auth/x/callback`;
@@ -227,7 +227,7 @@ app.post('/api/unfollow-bulk', requireAuth, async (req,res,next)=>{
 app.get('/api/profile/:id', requireAuth, async (req,res,next)=>{ try { const token=await getToken(req.auth.user); const data=await xFetch(`https://api.x.com/2/users/${req.params.id}?user.fields=id,name,username,description,profile_image_url,created_at,verified,protected,public_metrics`,token); res.json({account:accountView(data.data)}); } catch(e){next(e);} });
 
 app.use(express.static(path.join(ROOT,'public')));
-app.get('*',(req,res)=>res.sendFile(path.join(ROOT,'public','index.html')));
+app.get(/.*/,(req,res)=>res.sendFile(path.join(ROOT,'public','index.html')));
 app.use((err,req,res,next)=>{ console.error(err); res.status(err.status||500).json({error:err.message||'Server error',details:process.env.NODE_ENV==='production'?undefined:err.body}); });
 
-app.listen(PORT,()=>console.log(`X Control Center running at http://localhost:${PORT}`));
+app.listen(PORT, '0.0.0.0', () => console.log(`X Control Center running at http://0.0.0.0:${PORT}`));
